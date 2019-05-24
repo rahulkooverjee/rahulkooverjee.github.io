@@ -72,7 +72,7 @@ p.lead {
 }
 
 .social-icons a:hover {
-  background-color: #BD5D38;
+  background-color: #00b4b7;
 }
 
 .dev-icons {
@@ -80,7 +80,7 @@ p.lead {
 }
 
 .dev-icons .list-inline-item i:hover {
-  color: #BD5D38;
+  color: #00b4b7;
 }
 
 #sideNav .navbar-nav .nav-item .nav-link {
@@ -90,7 +90,7 @@ p.lead {
 }
 
 #sideNav .navbar-toggler:focus {
-  outline-color: #d48a6e;
+  outline-color: #9ff8f9;
 }
 
 @media (min-width: 992px) {
@@ -176,17 +176,60 @@ section.resume-section .resume-item .resume-date {
 }
 
 .bg-primary {
-  background-color: #BD5D38 !important;
+  background-color: #00b4b7 !important;
 }
 
 .text-primary {
-  color: #BD5D38 !important;
+  color: #00b4b7 !important;
 }
 
 a {
-  color: #BD5D38;
+  color: #00b4b7;
 }
 
 a:hover, a:focus, a:active {
-  color: #824027;
+  color: #008c8e;
+}
+
+.img-penn {
+    width: 100%;
+    max-width: 200px;
+    padding-bottom: 50px;
+    padding-top: 83px;
+}
+
+.img-google {
+    width: 100%;
+    max-width: 200px;
+    padding-bottom: 50px;
+    padding-top: 83px;
+}
+
+.img-boa {
+    width: 100%;
+    max-width: 200px;
+    padding-bottom: 50px;
+    padding-top: 83px;
+}
+
+.img-wharton {
+    width: 100%;
+    max-width: 200px;
+    padding-bottom: 30px;
+    padding-top: 20px;
+}
+
+.img-penn-eng {
+    width: 100%;
+    max-width: 200px;
+    padding-bottom: 20px;
+    padding-top: 70px;
+}
+
+.img-bbhs {
+    max-width: 200px;
+    height: 100%;
+    max-height: 150px;
+    padding-bottom: 30px;
+    padding-top: 40px;
 }
