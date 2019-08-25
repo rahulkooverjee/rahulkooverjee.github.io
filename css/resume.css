@@ -198,11 +198,18 @@ a:hover, a:focus, a:active {
     padding-top: 100px;
 }
 
-.img-google {
+.img-google-intern {
     width: 100%;
     max-width: 200px;
     padding-bottom: 50px;
     padding-top: 140px;
+}
+
+.img-google-fulltime {
+    width: 100%;
+    max-width: 200px;
+    padding-bottom: 50px;
+    padding-top: 50px;
 }
 
 .img-boa {
