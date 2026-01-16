@@ -1,0 +1,213 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-jakarta), ui-sans-serif, system-ui, sans-serif;
+  --font-grotesk: var(--font-grotesk), ui-sans-serif, system-ui, sans-serif;
+}
+
+:root {
+  --bg-dark: #050505;
+  --card-bg: rgba(15, 15, 15, 0.4);
+  --card-hover-bg: rgba(30, 41, 59, 0.4);
+  --accent-blue: #3b82f6;
+  --linkedin-blue: #0077b5;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg-dark);
+  color: #f8fafc;
+  overflow-x: hidden;
+  /* Use the theme utility or explicit var */
+  font-family: var(--font-jakarta), ui-sans-serif, system-ui, sans-serif;
+}
+
+/* Background Mesh */
+.mesh-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+      circle at 50% 0%,
+      rgba(59, 130, 246, 0.08) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 0% 100%,
+      rgba(37, 99, 235, 0.05) 0%,
+      transparent 50%
+    ),
+    #050505;
+  z-index: -1;
+}
+
+.mesh-bg::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  opacity: 0.02;
+  pointer-events: none;
+}
+
+/* Utilities */
+.heading-font {
+  font-family: var(--font-grotesk), ui-sans-serif, system-ui, sans-serif;
+}
+
+.bento-card {
+  background: var(--card-bg);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 28px;
+  backdrop-filter: blur(16px);
+  transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.bento-card:hover {
+  border-color: rgba(59, 130, 246, 0.4);
+  background: var(--card-hover-bg);
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px -20px rgba(59, 130, 246, 0.15);
+}
+
+/* Navigation */
+.nav-container {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+}
+
+.nav-glass {
+  position: relative;
+  z-index: 110;
+  background: rgba(5, 5, 5, 0.85);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, #fff 30%, #60a5fa 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Logo */
+.logo-box {
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.5s cubic-bezier(0.2, 1, 0.3, 1);
+}
+@media (min-width: 768px) {
+  .logo-box {
+    width: 44px;
+    height: 44px;
+  }
+}
+
+.group:hover .logo-box {
+  transform: scale(1.08);
+  background: #fff;
+  border-color: #fff;
+}
+.group:hover .logo-text {
+  color: #000;
+}
+
+.logo-text {
+  font-family: var(--font-grotesk), ui-sans-serif, system-ui, sans-serif;
+  font-weight: 700;
+  color: #fff;
+  transition: color 0.3s ease;
+}
+
+.nav-link.active {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.linkedin-btn {
+  background: rgba(0, 119, 181, 0.1);
+  color: #0077b5;
+  border: 1px solid rgba(0, 119, 181, 0.3);
+  transition: all 0.3s ease;
+}
+.linkedin-btn:hover {
+  background: #0077b5;
+  color: white;
+}
+
+/* Mobile Menu */
+#mobile-menu {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 90;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  background: #0a0a0a;
+  padding-top: 70px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  transform: translateY(-100%);
+}
+
+#mobile-menu.active {
+  transform: translateY(0);
+}
+
+.trait-card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  cursor: default;
+}
+
+.trait-card:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.3);
+  transform: scale(1.015) translateY(-2px);
+  box-shadow: 0 10px 30px -10px rgba(255, 255, 255, 0.1);
+}
+
+.avatar-circle {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  padding: 6px;
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.5), transparent);
+  transition: all 0.6s cubic-bezier(0.34, 1, 0.64, 1);
+}
+@media (min-width: 768px) {
+  .avatar-circle {
+    width: 170px;
+    height: 170px;
+  }
+}
+
+.avatar-circle:hover {
+  transform: scale(1.03) rotate(1.5deg);
+  box-shadow: 0 0 40px -15px rgba(59, 130, 246, 0.3);
+}
+
+.avatar-circle img {
+  transition: transform 0.6s ease;
+}
+
+.avatar-circle:hover img {
+  transform: scale(1.02);
+}
