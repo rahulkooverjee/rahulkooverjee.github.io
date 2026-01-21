@@ -134,7 +134,7 @@ export const resumeData: ResumeData = {
     {
       company: "Intro to Computer Science (CIS 110)",
       team: "Head Teaching Assistant",
-      location: "Jersey City, NJ",
+      location: "Philadelphia, PA",
       duration: "2016 — 2019",
       description:
         "Course, curriculum, and TA staff management for Penn's intro CS course (~300 students / semester)",
