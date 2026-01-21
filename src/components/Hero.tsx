@@ -4,7 +4,7 @@ import { GoogleIcon } from "./Icons";
 export default function Hero() {
   return (
     <section
-      id="hero"
+      id="about"
       className="min-h-screen pt-32 pb-16 flex flex-col items-center justify-center text-center"
     >
       <div className="avatar-circle mb-10 cursor-pointer">

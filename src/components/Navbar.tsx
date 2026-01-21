@@ -7,7 +7,7 @@ import { LinkedInIcon, MenuIcon, CloseIcon, ChevronRightIcon } from "./Icons";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState("hero");
+  const [activeSection, setActiveSection] = useState("about");
 
   useEffect(() => {
     const handleScroll = () => {
@@ -27,7 +27,7 @@ export default function Navbar() {
   }, []);
 
   const navLinks = [
-    { name: "ABOUT", href: "#hero" },
+    { name: "ABOUT", href: "#about" },
     { name: "EXPERIENCE", href: "#experience" },
     { name: "EDUCATION", href: "#education" },
   ];
@@ -38,7 +38,7 @@ export default function Navbar() {
         <div className="max-w-7xl mx-auto px-5 md:px-8 py-3.5 md:py-5 flex items-center justify-between">
           {/* Branding */}
           <div className="flex-1 flex justify-start">
-            <Link href="#hero" className="group flex items-center gap-2.5 md:gap-3">
+            <Link href="#about" className="group flex items-center gap-2.5 md:gap-3">
               <div className="logo-box">
                 <span className="logo-text text-sm md:text-lg">RK</span>
               </div>
