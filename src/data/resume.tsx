@@ -63,7 +63,7 @@ export const resumeData: ResumeData = {
          at a <span className="text-white font-bold">global scale</span> (sometimes even with <span className="text-white font-bold">AI</span>!)
       </>
     ),
-    avatar: "https://media.licdn.com/dms/image/v2/D4E03AQGb24CXMSz23A/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1732654229324?e=1769644800&v=beta&t=i9BsCx6_NKnHlJWmDT-zDWq50FWb-y-3mvyTsWwNoBY",
+    avatar: "/images/headshot.jpg",
     linkedin: "https://www.linkedin.com/in/rahul-kooverjee",
   },
   traits: [
@@ -87,7 +87,7 @@ export const resumeData: ResumeData = {
       description:
         "Growing publisher monetization through new innovations (auction optimizations, addressability signals, new ways of monetizing, etc...)",
       icon: null,
-      logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Google_%22G%22_logo.svg/2048px-Google_%22G%22_logo.svg.png",
+      logo: "/images/google-logo.png",
       roles: [
         {
           title: "Senior Product Manager",
@@ -115,7 +115,7 @@ export const resumeData: ResumeData = {
       description:
         "Bringing delight to billions of users through Doodles, Easter Eggs, and other fun sparkles of joy on Google Search",
       icon: null,
-      logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Google_%22G%22_logo.svg/2048px-Google_%22G%22_logo.svg.png",
+      logo: "/images/google-logo.png",
       roles: [
       ],
     },
@@ -127,7 +127,7 @@ export const resumeData: ResumeData = {
       description:
         "Improving advertiser experience of our ML-powered automated Search Ad targeting",
       icon: null,
-      logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Google_%22G%22_logo.svg/2048px-Google_%22G%22_logo.svg.png",
+      logo: "/images/google-logo.png",
       roles: [
       ],
     },
@@ -139,7 +139,7 @@ export const resumeData: ResumeData = {
       description:
         "Course, curriculum, and TA staff management for Penn's intro CS course (~300 students / semester)",
       icon: null,
-      logo: "https://sportslogohistory.com/wp-content/uploads/2022/11/penn_quakers_2004-2017_a.png",
+      logo: "/images/penn-logo.png",
       roles: [
         {
           title: "Head Teaching Assistant",
@@ -159,7 +159,7 @@ export const resumeData: ResumeData = {
       description:
         "Full stack software development in the Global Middle Office Technology group",
       icon: null,
-      logo: "https://companieslogo.com/img/orig/BAC-e7995069.png?t=1720244490",
+      logo: "/images/boa-logo.png",
       roles: [
       ],
     },
@@ -167,7 +167,7 @@ export const resumeData: ResumeData = {
   education: [
     {
       school: "University of Pennsylvania",
-      logo: "https://sportslogohistory.com/wp-content/uploads/2022/11/penn_quakers_2004-2017_a.png",
+      logo: "/images/penn-logo.png",
       duration: "2015 — 2019",
       location: "Philadelphia, PA",
       gpa: "3.95 GPA",

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { resumeData } from "@/data/resume";
 import { GoogleIcon } from "./Icons";
 
@@ -8,11 +9,13 @@ export default function Hero() {
       className="min-h-screen pt-32 pb-16 flex flex-col items-center justify-center text-center"
     >
       <div className="avatar-circle mb-10 cursor-pointer">
-        <div className="w-full h-full rounded-full overflow-hidden border-2 border-white/10">
-          <img
+        <div className="w-full h-full rounded-full overflow-hidden border-2 border-white/10 relative">
+          <Image
             src={resumeData.personal.avatar}
             alt={`${resumeData.personal.name} ${resumeData.personal.surname}`}
-            className="w-full h-full object-cover"
+            fill
+            className="object-cover"
+            priority
           />
         </div>
       </div>
@@ -33,10 +36,12 @@ export default function Hero() {
           >
             {trait.icon === "google" && <GoogleIcon />}
             {trait.icon === "penn" && (
-              <img
-                src="https://sportslogohistory.com/wp-content/uploads/2022/11/penn_quakers_2004-2017_a.png"
+              <Image
+                src="/images/penn-logo.png"
                 className="w-10 h-10 object-contain shrink-0"
                 alt="Penn"
+                width={40}
+                height={40}
               />
             )}
             <div className="flex flex-col items-start leading-tight">

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { resumeData } from "@/data/resume";
 import { GoogleIcon } from "./Icons";
 
@@ -23,12 +24,13 @@ export default function Experience() {
               <div className="flex flex-col md:flex-row gap-6">
                 {/* Icon Column */}
                 <div className="shrink-0">
-                  <div className="w-14 h-14 flex items-center justify-center overflow-hidden">
+                  <div className="w-14 h-14 flex items-center justify-center overflow-hidden relative">
                     {companyData.logo ? (
-                      <img
+                      <Image
                         src={companyData.logo}
                         alt={companyData.company}
-                        className="w-full h-full object-contain"
+                        className="object-contain"
+                        fill
                       />
                     ) : IconComponent ? (
                       <IconComponent />

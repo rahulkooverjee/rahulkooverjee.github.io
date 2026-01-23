@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { resumeData } from "@/data/resume";
 
 export default function Education() {
@@ -12,11 +13,12 @@ export default function Education() {
             <div className="flex flex-col md:flex-row gap-6">
               {/* Logo Column */}
               <div className="shrink-0">
-                <div className="w-14 h-14 flex items-center justify-center overflow-hidden">
-                  <img
+                <div className="w-14 h-14 flex items-center justify-center overflow-hidden relative">
+                  <Image
                     src={edu.logo}
-                    className="w-full h-full object-contain"
+                    className="object-contain"
                     alt={edu.school}
+                    fill
                   />
                 </div>
               </div>
