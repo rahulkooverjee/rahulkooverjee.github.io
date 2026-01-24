@@ -3,6 +3,24 @@
 import { useEffect, useRef, useState, useCallback } from "react";
 import Link from "next/link";
 
+// Game Constants
+const JUMP_STRENGTH = -8;
+const PIPE_SPEED = 3;
+const PIPE_SPAWN_RATE = 100; // frames
+const GAP_SIZE = 180;
+const BIRD_SIZE = 20;
+
+type Rect = { x: number; y: number; w: number; h: number };
+
+const checkCollision = (rect1: Rect, rect2: Rect) => {
+  return (
+    rect1.x < rect2.x + rect2.w &&
+    rect1.x + rect1.w > rect2.x &&
+    rect1.y < rect2.y + rect2.h &&
+    rect1.y + rect1.h > rect2.y
+  );
+};
+
 export default function NotFound() {
   const [gamekv, setGameKv] = useState(false);
   const [score, setScore] = useState(0);
@@ -12,19 +30,12 @@ export default function NotFound() {
   const requestRef = useRef<number>(0);
   const scoreRef = useRef(0);
 
-  // Game Constants
-  const GRAVITY = 0.5;
-  const JUMP_STRENGTH = -8;
-  const PIPE_SPEED = 3;
-  const PIPE_SPAWN_RATE = 100; // frames
-  const GAP_SIZE = 180;
-  const BIRD_SIZE = 20;
-
   // Game State Refs (for loop performance)
   const birdY = useRef(300);
   const birdVelocity = useRef(0);
   const pipes = useRef<{ x: number; topHeight: number; passed: boolean }[]>([]);
   const frameCount = useRef(0);
+  const gravityRef = useRef(0.5);
 
   const resetGame = () => {
     birdY.current = 300;
@@ -76,7 +87,7 @@ export default function NotFound() {
 
   }, []);
 
-  const update = useCallback(() => {
+  const update = useCallback(function gameLoop() {
     const canvas = canvasRef.current;
     if (!canvas) return;
     const ctx = canvas.getContext("2d");
@@ -86,7 +97,7 @@ export default function NotFound() {
     const height = canvas.height;
 
     // Physics
-    birdVelocity.current += GRAVITY;
+    birdVelocity.current += gravityRef.current;
     birdY.current += birdVelocity.current;
 
     // Spawn Pipes
@@ -135,18 +146,9 @@ export default function NotFound() {
     draw(ctx, width, height);
 
     if (!gameOver) {
-      requestRef.current = requestAnimationFrame(update);
+      requestRef.current = requestAnimationFrame(gameLoop);
     }
   }, [gameOver, draw]);
-
-  const checkCollision = (rect1: any, rect2: any) => {
-    return (
-      rect1.x < rect2.x + rect2.w &&
-      rect1.x + rect1.w > rect2.x &&
-      rect1.y < rect2.y + rect2.h &&
-      rect1.y + rect1.h > rect2.y
-    );
-  };
 
   const handleJump = useCallback(() => {
     if (gameOver) {
@@ -168,6 +170,16 @@ export default function NotFound() {
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [handleJump]);
+
+  // Adjust Gravity for Mobile
+  useEffect(() => {
+    const handleResize = () => {
+      gravityRef.current = window.innerWidth < 768 ? 0.3 : 0.5;
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   // Game Loop
   useEffect(() => {
@@ -194,7 +206,7 @@ export default function NotFound() {
               404 — <span className="gradient-text">Not Found</span>
             </h2>
             <p className="text-slate-400 text-lg md:text-xl max-w-md mb-8 leading-relaxed font-medium">
-              We can't find that page, but we have a fun game for you to play!
+              We can&apos;t find that page, but we have a fun game for you to play!
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4">
