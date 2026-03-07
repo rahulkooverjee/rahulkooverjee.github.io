@@ -59,8 +59,7 @@ export const resumeData: ResumeData = {
     company: "Google",
     tagline: (
       <>
-        Building <span className="text-white font-bold">incredible products</span> using{" "}
-         at a <span className="text-white font-bold">global scale</span> (sometimes even with <span className="text-white font-bold">AI</span>!)
+        Building <span className="text-white font-bold">incredible products</span> at a <span className="text-white font-bold">global scale</span> (sometimes even with <span className="text-white font-bold">AI</span>!)
       </>
     ),
     avatar: "/images/headshot.jpg",
